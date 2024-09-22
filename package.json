@@ -2,7 +2,7 @@
   "name": "nodejs-api-from-scratch-with-rapidapi-typescript-xata",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "app.js",
   "engines": {
     "node": ">=18"
   },
