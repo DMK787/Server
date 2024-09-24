@@ -23,7 +23,8 @@ const server = http.createServer(function(req, res) {
             console.log("No recieved data")
         }
     })
-    res.write(fs.readFileSync("Package.txt"))
+    res.writeHead(200, {'Content-Type': 'text/html'})
+    res.write(fs.readFileSync("login.html"))
     res.end()
 })
 
