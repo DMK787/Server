@@ -1,1 +1,0 @@
-let data = {"users": [{"id": 0, "username": "jeremy", "password": "user0"}, {"id": 1, "username": "jeremiah", "password": "user1"}]}
