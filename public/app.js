@@ -1,4 +1,4 @@
-const socket = io('ws//localhost:8080')
+const socket = io('ws//server-production-6104.up.railway.app')
 
 socket.on("message", text => {
     const element = document.createElement('li');
