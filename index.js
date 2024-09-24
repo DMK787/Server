@@ -9,14 +9,7 @@ const server = http.createServer(function(req, res) {
     })
     req.on('end', () => {
         if (data.length>0) {
-            fs.writeFileSync('Package.txt', "")
-            let split = data.split("☠")
-            var writestream = fs.WriteStream("Package.txt", {
-                flags: "a"
-            })
-            for (i in split) {
-                writestream.write(split[i] + "\n")
-            }
+            console.log(data)
             res.end("recieved data.")
         }
         else {

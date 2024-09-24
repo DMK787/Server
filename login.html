@@ -96,6 +96,17 @@
       background-color: #079658;
       cursor: pointer;
     }
+    .test {
+      position: absolute;
+      top: 2%;
+      left: 10%;
+      width: 80%;
+      height: 20%;
+      font-size: 18px;
+      text-align: center;
+      color: red;
+      z-index: -1;
+    }
 
   </style>
 </head>
@@ -105,15 +116,40 @@
   <label for="user"></label>
   <input class="username" id="user" name="username" placeholder="Username" type="text"></input>
   <label for="pword"></label>
-  <input class="password" id="pword" name="password" placeholder="Password" type="text"></input>
+  <input class="password" id="pword" name="password" placeholder="Password" type="password"></input>
   <button class="btn1" type="button" id="login">Login</button>
   <button class="btn2" type="button" id="signup">Sign Up</button>
+  <div class="test" id="test"></div>
 </div>
 <script src="users.js"></script>
 <script>
   document.getElementById("login").onclick = function() {
-    if (document)
-    console.log(data.users[0].username)
+    let i=0
+    let match=false
+    for (i in data.users) {
+      if (document.getElementById("user").value.toLowerCase()===data.users[i].username.toLowerCase()) {
+        console.log(data.users[i].username);
+        document.getElementById("test").textContent = "";
+        match=true;
+        if (document.getElementById("pword").value===data.users[i].password) {
+          document.getElementById("test").style.color="green";
+          document.getElementById("test").textContent = "Success, redirecting...";
+          window.location.href="index.html"
+        }
+        else {
+          document.getElementById("test").style.color="red";
+          document.getElementById("test").textContent = "Incorrect password";
+        }
+      }
+    }
+    if (match===false) {
+      document.getElementById("test").style.color="red";
+      document.getElementById("user").value="";
+      document.getElementById("test").textContent = "Invalid Username";
+    }
+  }
+  document.getElementById("signup").onclick = function() {
+    window.location.href="signup.html"
   }
 </script>
 </body>
